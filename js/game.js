@@ -79,7 +79,7 @@ function create() {
     star.setDepth(0);
     
     
-    var image = this.add.image(180, 450, 'background');
+    var image = this.add.image(180, 350, 'background');
     image.alpha = 0.3;
     image.setScale(0.7);
     
@@ -132,24 +132,24 @@ function create() {
     zone.setName('head');
     
     //  A drop zone
-    var zone2 = this.add.zone(211, 227, 80, 137).setRectangleDropZone(80, 137);
+    var zone2 = this.add.zone(160, 387, 80, 137).setRectangleDropZone(80, 137);
     zone2.setName('body');
     
     //  A drop zone
-    var zone3 = this.add.zone(135, 221, 65, 130).setRectangleDropZone(65, 130);
+    var zone3 = this.add.zone(30, 330, 65, 80).setRectangleDropZone(65, 80);
     zone3.setName('handL');
     
     
     //  A drop zone
     var zone4 = this.add.zone(252, 383, 90, 170).setRectangleDropZone(90, 170);
-    zone4.setName('legR');
+    zone4.setName('armR');
     
     //  A drop zone
-    var zone5 = this.add.zone(160, 385, 90, 170).setRectangleDropZone(90, 170);
-    zone5.setName('legL');
+    var zone5 = this.add.zone(90, 370, 40, 70).setRectangleDropZone(40, 70);
+    zone5.setName('armL');
     
     //  A drop zone
-    var zone6 = this.add.zone(270, 230, 40, 130).setRectangleDropZone(40, 130);
+    var zone6 = this.add.zone(370, 330, 40, 130).setRectangleDropZone(40, 130);
     zone6.setName('handR');
 
           var graphics = this.add.graphics();
