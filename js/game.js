@@ -128,28 +128,28 @@ function create() {
     
     //-----les drop zones----
     //  A drop zone
-    var zone = this.add.zone(200, 95, 115, 120).setRectangleDropZone(115, 120);
+    var zone = this.add.zone(135, 280, 115, 120).setRectangleDropZone(115, 120);
     zone.setName('head');
     
     //  A drop zone
-    var zone2 = this.add.zone(160, 387, 80, 137).setRectangleDropZone(80, 137);
+    var zone2 = this.add.zone(200, 397, 80, 100).setRectangleDropZone(80, 100);
     zone2.setName('body');
     
     //  A drop zone
-    var zone3 = this.add.zone(30, 330, 65, 80).setRectangleDropZone(65, 80);
+    var zone3 = this.add.zone(27, 315, 65, 50).setRectangleDropZone(65, 50);
     zone3.setName('handL');
     
     
     //  A drop zone
-    var zone4 = this.add.zone(252, 383, 90, 170).setRectangleDropZone(90, 170);
+    var zone4 = this.add.zone(228, 365, 50, 70).setRectangleDropZone(50, 70);
     zone4.setName('armR');
     
     //  A drop zone
-    var zone5 = this.add.zone(90, 370, 40, 70).setRectangleDropZone(40, 70);
+    var zone5 = this.add.zone(70, 360, 40, 70).setRectangleDropZone(40, 70);
     zone5.setName('armL');
     
     //  A drop zone
-    var zone6 = this.add.zone(370, 330, 40, 130).setRectangleDropZone(40, 130);
+    var zone6 = this.add.zone(310, 330, 90, 130).setRectangleDropZone(80, 130);
     zone6.setName('handR');
 
           var graphics = this.add.graphics();
