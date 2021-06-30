@@ -41,14 +41,14 @@ function init() {
 }
 
 function preload() {
-    this.load.image('background', './assets/capt-01.png');
+    this.load.image('background', './assets/captain-01.png');
     
-    this.load.image('head', './assets/capthead-01.png');
-    this.load.image('body', './assets/captbody-01.png');
-    this.load.image('handL', './assets/capthandL-01.png');
-    this.load.image('handR', './assets/capthandR-01.png');
-    this.load.image('armL', './assets/captarmL-01.png');
-    this.load.image('armR', './assets/captarmR-01.png');
+    this.load.image('head', './assets/captainHead-01.png');
+    this.load.image('body', './assets/captainBody-01.png');
+    this.load.image('handL', './assets/captainHook-01.png');
+    this.load.image('handR', './assets/captainHat-01.png');
+    this.load.image('armL', './assets/captainSword-01.png');
+    this.load.image('boot', './assets/captainBoot-01.png');
     
     this.load.image('nextArrow', './assets/purple-arrow.png');
     
@@ -79,9 +79,9 @@ function create() {
     star.setDepth(0);
     
     
-    var image = this.add.image(180, 350, 'background');
+    var image = this.add.image(180, 220, 'background');
     image.alpha = 0.3;
-    image.setScale(0.7);
+//    image.setScale(0.7);
     
     holdSound = this.sound.add('hold');
     wrongSound = this.sound.add('wrong');
@@ -93,7 +93,7 @@ function create() {
     this.input.setDraggable(head);
 //    head.setScale(2);
     head.setName('head');
-    head.setScale(0.70);
+//    head.setScale(0.70);
     
     successfulDropoff = 0;
     
@@ -104,27 +104,27 @@ function create() {
     var body = this.add.image(60, 550, 'body', Phaser.Math.RND.pick(frames)).setInteractive();
     this.input.setDraggable(body);
     body.setName('body');
-    body.setScale(0.70);
+//    body.setScale(0.70);
     
     var handL = this.add.image(310, 92, 'handL', Phaser.Math.RND.pick(frames)).setInteractive();
     this.input.setDraggable(handL);
     handL.setName('handL');
-    handL.setScale(0.70);
+//    handL.setScale(0.70);
     
     var handR = this.add.image(200, 552, 'handR', Phaser.Math.RND.pick(frames)).setInteractive();
     this.input.setDraggable(handR);
     handR.setName('handR');
-    handR.setScale(0.70);
+//    handR.setScale(0.70);
     
     var armL = this.add.image(50, 212, 'armL', Phaser.Math.RND.pick(frames)).setInteractive();
     this.input.setDraggable(armL);
     armL.setName('armL');
-    armL.setScale(0.70);
+//    armL.setScale(0.70);
     
-    var armR = this.add.image(310, 570, 'armR', Phaser.Math.RND.pick(frames)).setInteractive();
-    this.input.setDraggable(armR);
-    armR.setName('armR');
-    armR.setScale(0.70);
+    var boot = this.add.image(310, 570, 'boot', Phaser.Math.RND.pick(frames)).setInteractive();
+    this.input.setDraggable(boot);
+    boot.setName('boot');
+//    armR.setScale(0.70);
     
     //-----les drop zones----
     //  A drop zone
@@ -149,8 +149,8 @@ function create() {
     zone5.setName('armL');
     
     //  A drop zone
-    var zone6 = this.add.zone(310, 330, 90, 130).setRectangleDropZone(80, 130);
-    zone6.setName('handR');
+    var zone6 = this.add.zone(310, 240, 90, 130).setRectangleDropZone(80, 130);
+    zone6.setName('boot');
 
           var graphics = this.add.graphics();
     graphics.lineStyle(2, 0xffff00);
