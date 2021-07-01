@@ -13,7 +13,7 @@ let config = {
     },
     backgroundColor: '#cea7d2',
     audio: {
-        disableWebAudio: true
+        disableWebAudio: false
     },
     autoCenter: true
 };
