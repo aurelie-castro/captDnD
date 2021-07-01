@@ -45,12 +45,12 @@ function preload() {
     
     this.load.image('head', './assets/captainHead-01.png');
     this.load.image('body', './assets/captainBody-01.png');
-    this.load.image('handL', './assets/captainHook-01.png');
-    this.load.image('handR', './assets/captainHat-01.png');
-    this.load.image('armL', './assets/captainSword-01.png');
+    this.load.image('hook', './assets/captainHook-01.png');
+    this.load.image('hat', './assets/captainHat-01.png');
+    this.load.image('sword', './assets/captainSword-01.png');
     this.load.image('boot', './assets/captainBoot-01.png');
     
-    this.load.image('nextArrow', './assets/purple-arrow.png');
+    this.load.image('nextArrow', './assets/p-refresh.png');
     
     this.load.audio('hold', './assets/hold.wav');
     this.load.audio('wrong', './assets/wrong.wav');
@@ -89,7 +89,7 @@ function create() {
     finishSound = this.sound.add('finish');
     
     //----les membres-----
-    var head = this.add.image(50, 380, 'head', Phaser.Math.RND.pick(frames)).setInteractive();
+    var head = this.add.image(300, 70, 'head', Phaser.Math.RND.pick(frames)).setInteractive();
     this.input.setDraggable(head);
 //    head.setScale(2);
     head.setName('head');
@@ -98,73 +98,73 @@ function create() {
     successfulDropoff = 0;
     
     nextArrow = this.add.image(300, 550, 'nextArrow');
-    nextArrow.setScale(0.7);
+    nextArrow.setScale(0.15);
     nextArrow.setVisible(false);
     
-    var body = this.add.image(60, 550, 'body', Phaser.Math.RND.pick(frames)).setInteractive();
+    var body = this.add.image(245, 508, 'body', Phaser.Math.RND.pick(frames)).setInteractive();
     this.input.setDraggable(body);
     body.setName('body');
 //    body.setScale(0.70);
     
-    var handL = this.add.image(310, 92, 'handL', Phaser.Math.RND.pick(frames)).setInteractive();
-    this.input.setDraggable(handL);
-    handL.setName('handL');
+    var sword = this.add.image(135, 450, 'sword', Phaser.Math.RND.pick(frames)).setInteractive();
+    this.input.setDraggable(sword);
+    sword.setName('sword');
 //    handL.setScale(0.70);
     
-    var handR = this.add.image(200, 552, 'handR', Phaser.Math.RND.pick(frames)).setInteractive();
-    this.input.setDraggable(handR);
-    handR.setName('handR');
+    var hat = this.add.image(50, 552, 'hat', Phaser.Math.RND.pick(frames)).setInteractive();
+    this.input.setDraggable(hat);
+    hat.setName('hat');
 //    handR.setScale(0.70);
     
-    var armL = this.add.image(50, 212, 'armL', Phaser.Math.RND.pick(frames)).setInteractive();
-    this.input.setDraggable(armL);
-    armL.setName('armL');
+    var hook = this.add.image(320, 150, 'hook', Phaser.Math.RND.pick(frames)).setInteractive();
+    this.input.setDraggable(hook);
+    hook.setName('hook');
 //    armL.setScale(0.70);
     
-    var boot = this.add.image(310, 570, 'boot', Phaser.Math.RND.pick(frames)).setInteractive();
+    var boot = this.add.image(310, 350, 'boot', Phaser.Math.RND.pick(frames)).setInteractive();
     this.input.setDraggable(boot);
     boot.setName('boot');
 //    armR.setScale(0.70);
     
     //-----les drop zones----
     //  A drop zone
-    var zone = this.add.zone(135, 280, 115, 120).setRectangleDropZone(115, 120);
-    zone.setName('head');
+    var zone = this.add.zone(172, 280, 115, 190).setRectangleDropZone(115, 190);
+    zone.setName('body');
     
     //  A drop zone
-    var zone2 = this.add.zone(200, 397, 80, 100).setRectangleDropZone(80, 100);
-    zone2.setName('body');
+    var zone2 = this.add.zone(94, 415, 50, 60).setRectangleDropZone(50, 60);
+    zone2.setName('hook');
     
     //  A drop zone
-    var zone3 = this.add.zone(27, 315, 65, 50).setRectangleDropZone(65, 50);
-    zone3.setName('handL');
+    var zone3 = this.add.zone(48, 129, 80, 110).setRectangleDropZone(80, 110);
+    zone3.setName('hat');
     
     
     //  A drop zone
-    var zone4 = this.add.zone(228, 365, 50, 70).setRectangleDropZone(50, 70);
-    zone4.setName('armR');
+    var zone4 = this.add.zone(165, 62, 70, 120).setRectangleDropZone(70, 120);
+    zone4.setName('sword');
     
     //  A drop zone
-    var zone5 = this.add.zone(70, 360, 40, 70).setRectangleDropZone(40, 70);
-    zone5.setName('armL');
+    var zone5 = this.add.zone(79, 254, 70, 95).setRectangleDropZone(70, 95);
+    zone5.setName('head');
     
     //  A drop zone
-    var zone6 = this.add.zone(310, 240, 90, 130).setRectangleDropZone(80, 130);
+    var zone6 = this.add.zone(322, 240, 90, 130).setRectangleDropZone(80, 130);
     zone6.setName('boot');
 
-          var graphics = this.add.graphics();
-    graphics.lineStyle(2, 0xffff00);
-    graphics.strokeRect(zone.x - zone.input.hitArea.width / 2, zone.y - zone.input.hitArea.height / 2, zone.input.hitArea.width, zone.input.hitArea.height);
-    
-    graphics.strokeRect(zone2.x - zone2.input.hitArea.width / 2, zone2.y - zone2.input.hitArea.height / 2, zone2.input.hitArea.width, zone2.input.hitArea.height);
-    
-    graphics.strokeRect(zone3.x - zone3.input.hitArea.width / 2, zone3.y - zone3.input.hitArea.height / 2, zone3.input.hitArea.width, zone3.input.hitArea.height);
-    
-    graphics.strokeRect(zone4.x - zone4.input.hitArea.width / 2, zone4.y - zone4.input.hitArea.height / 2, zone4.input.hitArea.width, zone4.input.hitArea.height);
-    
-    graphics.strokeRect(zone5.x - zone5.input.hitArea.width / 2, zone5.y - zone5.input.hitArea.height / 2, zone5.input.hitArea.width, zone5.input.hitArea.height);
-    
-    graphics.strokeRect(zone6.x - zone6.input.hitArea.width / 2, zone6.y - zone6.input.hitArea.height / 2, zone6.input.hitArea.width, zone6.input.hitArea.height);
+//          var graphics = this.add.graphics();
+//    graphics.lineStyle(2, 0xffff00);
+//    graphics.strokeRect(zone.x - zone.input.hitArea.width / 2, zone.y - zone.input.hitArea.height / 2, zone.input.hitArea.width, zone.input.hitArea.height);
+//    
+//    graphics.strokeRect(zone2.x - zone2.input.hitArea.width / 2, zone2.y - zone2.input.hitArea.height / 2, zone2.input.hitArea.width, zone2.input.hitArea.height);
+//    
+//    graphics.strokeRect(zone3.x - zone3.input.hitArea.width / 2, zone3.y - zone3.input.hitArea.height / 2, zone3.input.hitArea.width, zone3.input.hitArea.height);
+//    
+//    graphics.strokeRect(zone4.x - zone4.input.hitArea.width / 2, zone4.y - zone4.input.hitArea.height / 2, zone4.input.hitArea.width, zone4.input.hitArea.height);
+//    
+//    graphics.strokeRect(zone5.x - zone5.input.hitArea.width / 2, zone5.y - zone5.input.hitArea.height / 2, zone5.input.hitArea.width, zone5.input.hitArea.height);
+//    
+//    graphics.strokeRect(zone6.x - zone6.input.hitArea.width / 2, zone6.y - zone6.input.hitArea.height / 2, zone6.input.hitArea.width, zone6.input.hitArea.height);
  
     this.input.on('dragstart', function (pointer, gameObject) {
 
@@ -246,6 +246,6 @@ function update() {
 }
 function onClick(){
 //    window.open("https://www.google.com", "_blank");
-    window.location.replace("http://www.w3schools.com");
+    window.location.replace("https://games.caramel.be/peter-pan/index.html");
 
 }
