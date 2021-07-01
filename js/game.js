@@ -81,7 +81,6 @@ function create() {
     
     var image = this.add.image(180, 220, 'background');
     image.alpha = 0.3;
-//    image.setScale(0.7);
     
     holdSound = this.sound.add('hold');
     wrongSound = this.sound.add('wrong');
@@ -91,9 +90,8 @@ function create() {
     //----les membres-----
     var head = this.add.image(300, 70, 'head', Phaser.Math.RND.pick(frames)).setInteractive();
     this.input.setDraggable(head);
-//    head.setScale(2);
     head.setName('head');
-//    head.setScale(0.70);
+
     
     successfulDropoff = 0;
     
@@ -104,28 +102,23 @@ function create() {
     var body = this.add.image(245, 508, 'body', Phaser.Math.RND.pick(frames)).setInteractive();
     this.input.setDraggable(body);
     body.setName('body');
-//    body.setScale(0.70);
     
     var sword = this.add.image(135, 450, 'sword', Phaser.Math.RND.pick(frames)).setInteractive();
     this.input.setDraggable(sword);
     sword.setName('sword');
-//    handL.setScale(0.70);
     
     var hat = this.add.image(50, 552, 'hat', Phaser.Math.RND.pick(frames)).setInteractive();
     this.input.setDraggable(hat);
     hat.setName('hat');
-//    handR.setScale(0.70);
     
     var hook = this.add.image(320, 150, 'hook', Phaser.Math.RND.pick(frames)).setInteractive();
     this.input.setDraggable(hook);
     hook.setName('hook');
-//    armL.setScale(0.70);
     
     var boot = this.add.image(310, 350, 'boot', Phaser.Math.RND.pick(frames)).setInteractive();
     this.input.setDraggable(boot);
     boot.setName('boot');
-//    armR.setScale(0.70);
-    
+
     //-----les drop zones----
     //  A drop zone
     var zone = this.add.zone(172, 280, 115, 190).setRectangleDropZone(115, 190);
@@ -151,20 +144,6 @@ function create() {
     //  A drop zone
     var zone6 = this.add.zone(322, 240, 90, 130).setRectangleDropZone(80, 130);
     zone6.setName('boot');
-
-//          var graphics = this.add.graphics();
-//    graphics.lineStyle(2, 0xffff00);
-//    graphics.strokeRect(zone.x - zone.input.hitArea.width / 2, zone.y - zone.input.hitArea.height / 2, zone.input.hitArea.width, zone.input.hitArea.height);
-//    
-//    graphics.strokeRect(zone2.x - zone2.input.hitArea.width / 2, zone2.y - zone2.input.hitArea.height / 2, zone2.input.hitArea.width, zone2.input.hitArea.height);
-//    
-//    graphics.strokeRect(zone3.x - zone3.input.hitArea.width / 2, zone3.y - zone3.input.hitArea.height / 2, zone3.input.hitArea.width, zone3.input.hitArea.height);
-//    
-//    graphics.strokeRect(zone4.x - zone4.input.hitArea.width / 2, zone4.y - zone4.input.hitArea.height / 2, zone4.input.hitArea.width, zone4.input.hitArea.height);
-//    
-//    graphics.strokeRect(zone5.x - zone5.input.hitArea.width / 2, zone5.y - zone5.input.hitArea.height / 2, zone5.input.hitArea.width, zone5.input.hitArea.height);
-//    
-//    graphics.strokeRect(zone6.x - zone6.input.hitArea.width / 2, zone6.y - zone6.input.hitArea.height / 2, zone6.input.hitArea.width, zone6.input.hitArea.height);
  
     this.input.on('dragstart', function (pointer, gameObject) {
 
@@ -194,8 +173,6 @@ function create() {
             gameObject.y = dropZone.y;
 
             gameObject.input.enabled = false;
-            console.log(dropZone.name == gameObject.name);
-            console.log('successful dropoff of ' + gameObject.name + ' in ' + dropZone.name);
             
             successfulDropoff++;
             correctSound.play();
@@ -203,7 +180,6 @@ function create() {
 else{
             gameObject.x = gameObject.input.dragStartX;
             gameObject.y = gameObject.input.dragStartY;
-            console.log('failed dropoff of ' + gameObject.name + ' in ' + dropZone.name);
     
             wrongSound.play();
         }
@@ -220,7 +196,6 @@ else{
         }
         
       if(successfulDropoff === 6){
-            console.log("well done!!!!");
             nextArrow.setVisible(true);
             nextArrow.setInteractive();
           finishSound.play();
@@ -245,7 +220,6 @@ function update() {
         } }
 }
 function onClick(){
-//    window.open("https://www.google.com", "_blank");
     window.location.replace("https://games.caramel.be/peter-pan/index.html");
 
 }
